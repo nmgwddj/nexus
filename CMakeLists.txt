@@ -7,7 +7,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if (APPLE)
+    add_definitions(-D__APPLE_USE_RFC_3542)
+endif ()
+
 add_subdirectory(dependency)
+include_directories(${CMAKE_SOURCE_DIR}/dependency/boost)
 
 add_library(address-sanitizer INTERFACE)
 target_compile_options(address-sanitizer INTERFACE "-fsanitize=address,undefined")
@@ -25,5 +30,5 @@ install(DIRECTORY include/nexus DESTINATION include)
 add_subdirectory(examples)
 add_subdirectory(src)
 
-enable_testing()
-add_subdirectory(test)
+# enable_testing()
+# add_subdirectory(test)

@@ -3,6 +3,7 @@
 #include <boost/asio/ip/udp.hpp>
 
 #include <nexus/error_code.hpp>
+#include <netinet/in.h>
 
 namespace nexus {
 
