@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(dependency)
-
 add_library(nexus-headers INTERFACE)
 target_include_directories(nexus-headers INTERFACE include)
 target_link_libraries(nexus-headers INTERFACE asio)
@@ -24,7 +22,7 @@ if (BUILD_TESTING)
     add_library(thread-sanitizer INTERFACE)
     target_compile_options(thread-sanitizer INTERFACE "-fsanitize=thread")
     target_link_libraries(thread-sanitizer INTERFACE "-fsanitize=thread")
-    
+
     add_subdirectory(test)
     add_subdirectory(examples)
 endif ()
