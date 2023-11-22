@@ -285,7 +285,7 @@ constexpr size_t ecn_size = sizeof(int);
 #ifdef IP_RECVORIGDSTADDR
 constexpr size_t dstaddr4_size = sizeof(sockaddr_in);
 #else
-constexpr size_t dstaddr4_size = sizeof(in_pktinfo)
+constexpr size_t dstaddr4_size = sizeof(in_pktinfo);
 #endif
 constexpr size_t dstaddr_size = std::max(dstaddr4_size, sizeof(in6_pktinfo));
 constexpr size_t max_control_size = CMSG_SPACE(ecn_size) + CMSG_SPACE(dstaddr_size);
