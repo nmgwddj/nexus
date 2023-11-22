@@ -13,7 +13,13 @@ set(nexus-srcs
 
 find_package(lsquic REQUIRED)
 find_package(Boost REQUIRED)
+find_package(boringssl REQUIRED)
 
 add_library(nexus ${nexus-srcs})
-target_link_libraries(nexus PUBLIC nexus-headers lsquic::lsquic Boost::headers)
+target_link_libraries(nexus PUBLIC
+	nexus-headers
+	lsquic::lsquic
+	Boost::headers
+	boringssl::boringssl
+)
 install(TARGETS nexus LIBRARY DESTINATION lib)
