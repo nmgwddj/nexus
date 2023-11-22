@@ -1,5 +1,6 @@
 #include <nexus/quic/settings.hpp>
 #include <lsquic.h>
+#include <string>
 
 namespace nexus::quic {
 
