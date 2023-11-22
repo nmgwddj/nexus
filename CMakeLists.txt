@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if (APPLE)
+    add_definitions(-D__APPLE_USE_RFC_3542)
+endif ()
+
 add_library(nexus-headers INTERFACE)
 target_include_directories(nexus-headers INTERFACE include)
 target_link_libraries(nexus-headers INTERFACE asio)

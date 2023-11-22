@@ -7,6 +7,10 @@
 #include <netinet/ip.h>
 #include <lsquic.h>
 
+#if defined(__APPLE__)
+#define IPTOS_ECN(x)              ((x) & IPTOS_ECN_MASK)
+#endif
+
 namespace nexus::quic {
 
 void prepare_socket(udp::socket& sock, bool is_server, error_code& ec)
