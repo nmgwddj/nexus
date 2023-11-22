@@ -4,6 +4,8 @@
 
 #include <nexus/error_code.hpp>
 
+#include <netinet/in.h>
+
 namespace nexus {
 
 using boost::asio::ip::udp;
